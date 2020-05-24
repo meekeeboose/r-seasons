@@ -23,7 +23,7 @@ class App extends React.Component {
     //THIS IS THE ONLY TIME WE DO DIRECT ASSIGNMENT
     this.state = { lat: null };
   }
-
+  // React says we have to define render!
   render() {
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
