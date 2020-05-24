@@ -21,7 +21,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     //THIS IS THE ONLY TIME WE DO DIRECT ASSIGNMENT
-    this.state = { lat: null };
+    this.state = { lat: null, errorMessage: "" };
   }
   // React says we have to define render!
   render() {
@@ -30,7 +30,9 @@ class App extends React.Component {
         // Call setState
         this.setState({ lat: position.coords.latitude });
       },
-      (err) => console.log(err)
+      (err) => {
+        this.setState({ errorMessage: err.message });
+      }
     );
 
     return <div>Latitude: {this.state.lat}</div>;
